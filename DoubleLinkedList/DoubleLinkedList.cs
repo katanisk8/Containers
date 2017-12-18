@@ -9,7 +9,7 @@
       {
          DoubleLinkedListElement<TValue> element = new DoubleLinkedListElement<TValue>(value);
 
-         if (First == null && Last == null)
+         if (IsEmpty())
          {
             First = element;
             Last = element;
@@ -26,7 +26,7 @@
       {
          DoubleLinkedListElement<TValue> element = new DoubleLinkedListElement<TValue>(value);
 
-         if (First == null && Last == null)
+         if (IsEmpty())
          {
             First = element;
             Last = element;
@@ -44,7 +44,31 @@
          DoubleLinkedListElement<TValue> elementBefore = new DoubleLinkedListElement<TValue>(valueBefore);
          DoubleLinkedListElement<TValue> element = FindFirst(value);
 
-         if (First == null && Last == null)
+         if (IsEmpty())
+         {
+            First = element;
+            Last = element;
+         }
+         else if (element == null)
+         {
+            return;
+         }
+         else
+         {
+            elementBefore.Prev = element.Prev;
+            elementBefore.Next = element;
+
+            element.Prev.Next = elementBefore;
+            element = elementBefore;
+         }
+      }
+
+      public void AddAfter(TValue valueBefore, TValue value)
+      {
+         DoubleLinkedListElement<TValue> elementBefore = new DoubleLinkedListElement<TValue>(valueBefore);
+         DoubleLinkedListElement<TValue> element = FindFirst(value);
+
+         if (IsEmpty())
          {
             First = element;
             Last = element;
@@ -80,12 +104,15 @@
          return null;
       }
 
-      //void AddAfter(TValue value, TValue key)
+      public bool IsEmpty()
+      {
+         return First == null && Last == null;
+      }
+
       //void RemoveAll()
       //void RemoveFirst()
       //void RemoveLast()
       //void Remove(TValue value)
       //unsigned int Size()
-      //bool IsEmpty()
    }
 }
