@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{4A20EABB-DD90-448F-AC08-9720C16F82EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conteiners", "Conteiners\Conteiners.csproj", "{EA0B8C56-0F30-4AC3-9449-81D08F7BAE55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Containers", "Containers\Containers.csproj", "{EA0B8C56-0F30-4AC3-9449-81D08F7BAE55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainersTests", "ContainersTests\ContainersTests.csproj", "{9FB22CC0-CC81-4FE5-9018-1691195FF869}"
 EndProject

@@ -1,8 +1,8 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Conteiners.DoubleLinkedList;
+using Containers.DoubleLinkedList;
 
-namespace ContainersTests
+namespace ContainersTests.DoubleLinkedListTests
 {
    [TestClass]
    public class DoubleLinkedListTests

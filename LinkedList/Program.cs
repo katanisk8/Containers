@@ -1,4 +1,4 @@
-﻿namespace Conteiners.DoubleLinkedList
+﻿namespace Containers.DoubleLinkedList
 {
    class Program
    {

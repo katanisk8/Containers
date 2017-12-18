@@ -1,4 +1,4 @@
-﻿namespace Conteiners.DoubleLinkedList
+﻿namespace Containers.DoubleLinkedListElement
 {
    public class DoubleLinkedListElement<TValue>
    {
