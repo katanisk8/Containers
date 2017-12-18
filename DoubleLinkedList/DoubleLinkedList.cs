@@ -1,6 +1,4 @@
-﻿using Containers.DoubleLinkedListElement;
-
-namespace Containers.DoubleLinkedList
+﻿namespace DoubleLinkedList
 {
    public class DoubleLinkedList<TValue>
    {
@@ -57,14 +55,12 @@ namespace Containers.DoubleLinkedList
          }
          else
          {
+            elementBefore.Prev = element.Prev;
+            elementBefore.Next = element;
+
             element.Prev.Next = elementBefore;
-
-
-
-            //elementBefore.Prev = element.Prev;
-            //elementBefore.Next = element;
-            //element.Prev = elementBefore;
-         } 
+            element = elementBefore;
+         }
       }
 
       public DoubleLinkedListElement<TValue> FindFirst(TValue value)
