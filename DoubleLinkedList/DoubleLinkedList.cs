@@ -1,7 +1,11 @@
-﻿namespace DoubleLinkedList
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace DoubleLinkedList
 {
-   public class DoubleLinkedList<TValue>
+   public class DoubleLinkedList<TValue> : IDoubleLinkedList<TValue>, IEnumerable<TValue>
    {
+
       public DoubleLinkedListElement<TValue> First { get; set; } = null;
       public DoubleLinkedListElement<TValue> Last { get; set; } = null;
 
@@ -108,6 +112,29 @@
       {
          return First == null && Last == null;
       }
+
+      private IEnumerable<TValue> Events()
+      {
+         DoubleLinkedListElement<TValue> element = First;
+         
+         while (element != null)
+         {
+            yield return element.Value;
+         }
+
+         element = element.Next;
+      }
+
+      public IEnumerator<TValue> GetEnumerator()
+      {
+         return Events().GetEnumerator();
+      }
+
+      IEnumerator IEnumerable.GetEnumerator()
+      {
+         return GetEnumerator();
+      }
+
 
       //void RemoveAll()
       //void RemoveFirst()

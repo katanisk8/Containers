@@ -1,6 +1,6 @@
 ﻿namespace DoubleLinkedList
 {
-   public class DoubleLinkedListElement<TValue>
+   public class DoubleLinkedListElement<TValue> : IDoubleLinkedListElement<TValue>
    {
       public DoubleLinkedListElement<TValue> Prev { get; set; } = null;
       public DoubleLinkedListElement<TValue> Next { get; set; } = null;
