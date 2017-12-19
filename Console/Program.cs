@@ -10,9 +10,13 @@ class Program
       ItemList.AddFirst(2);
       ItemList.AddFirst(1);
       ItemList.AddFirst(0);
-      ItemList.AddLast(4);
-      ItemList.AddLast(5);
+      ItemList.AddLast(6);
+      ItemList.AddLast(7);
+      ItemList.AddLast(8);
+      ItemList.AddLast(9);
 
+      ItemList.AddBefore(5, 6);
+      ItemList.AddBefore(4, 5);
       ItemList.AddBefore(3, 4);
 
       foreach (var item in ItemList)

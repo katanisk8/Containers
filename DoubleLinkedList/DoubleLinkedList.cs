@@ -73,9 +73,9 @@ namespace DoubleLinkedList
          }
       }
 
-      public void AddAfter(TValue valueBefore, TValue value)
+      public void AddAfter(TValue valueAfter, TValue value)
       {
-         DoubleLinkedListElement<TValue> elementBefore = new DoubleLinkedListElement<TValue>(valueBefore);
+         DoubleLinkedListElement<TValue> elementAfter = new DoubleLinkedListElement<TValue>(valueAfter);
          DoubleLinkedListElement<TValue> element = FindFirst(value);
 
          if (IsEmpty())
@@ -90,10 +90,10 @@ namespace DoubleLinkedList
          }
          else
          {
-            elementBefore.Prev = element.Prev;
-            elementBefore.Next = element;
-            element.Prev.Next = elementBefore;
-            element = elementBefore;
+            element.Next = elementAfter.Next;
+            element.Prev = elementAfter;
+            elementAfter.Prev.Next = element;
+            elementAfter = element;
             Count++;
          }
       }

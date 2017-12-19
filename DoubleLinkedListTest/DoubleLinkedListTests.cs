@@ -64,11 +64,11 @@ namespace ContainersTests.DoubleLinkedListTests
 
          list.AddLast(0);
          list.AddLast(4);
-         list.AddBefore(3, 4);
-         ExceptException(() => { list.AddBefore(2, -5); });
-         list.AddBefore(2, 3);
-         list.AddBefore(1, 2);
-         ExceptException(() => { list.AddBefore(2, 5); });
+         list.AddAfter(5, 4);
+         ExceptException(() => { list.AddAfter(2, -5); });
+         list.AddAfter(3, 2);
+         list.AddAfter(2, 1);
+         ExceptException(() => { list.AddAfter(5, 2); });
 
          CheckListOrder(list);
       }
@@ -169,7 +169,7 @@ namespace ContainersTests.DoubleLinkedListTests
          Assert.AreEqual(list.Last.Next, null);
          Assert.AreEqual(list.Last.Value, 4);
 
-         Assert.AreEqual(list.Count, 5);
+         Assert.AreEqual((int)list.Count, 5);
       }
    }
 }
