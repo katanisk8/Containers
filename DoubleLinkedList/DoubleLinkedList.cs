@@ -98,6 +98,23 @@ namespace DoubleLinkedList
          }
       }
 
+      public void Clear()
+      {
+         DoubleLinkedListElement<TValue> element = First;
+
+         while (element != null)
+         {
+            var nextElement = element.Next;
+
+            First = null;
+            Last = null;
+            element = null;
+            Count--;
+
+            element = nextElement;
+         }
+      }
+
       public DoubleLinkedListElement<TValue> FindFirst(TValue value)
       {
          DoubleLinkedListElement<TValue> element = First;
@@ -123,7 +140,7 @@ namespace DoubleLinkedList
       private IEnumerable<TValue> Events()
       {
          DoubleLinkedListElement<TValue> element = First;
-         
+
          while (element != null)
          {
             yield return element.Value;

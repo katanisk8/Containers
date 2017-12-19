@@ -42,6 +42,56 @@ namespace ContainersTests.DoubleLinkedListTests
       }
 
       [TestMethod]
+      public void AddBeforeTest()
+      {
+         DoubleLinkedList<int> list = new DoubleLinkedList<int>();
+
+         list.AddLast(0);
+         list.AddLast(4);
+         list.AddBefore(3, 4);
+         ExceptException(() => { list.AddBefore(2, -5); });
+         list.AddBefore(2, 3);
+         list.AddBefore(1, 2);
+         ExceptException(() => { list.AddBefore(2, 5); });
+
+         CheckListOrder(list);
+      }
+
+      [TestMethod]
+      public void AddAfterTest()
+      {
+         DoubleLinkedList<int> list = new DoubleLinkedList<int>();
+
+         list.AddLast(0);
+         list.AddLast(4);
+         list.AddBefore(3, 4);
+         ExceptException(() => { list.AddBefore(2, -5); });
+         list.AddBefore(2, 3);
+         list.AddBefore(1, 2);
+         ExceptException(() => { list.AddBefore(2, 5); });
+
+         CheckListOrder(list);
+      }
+
+      [TestMethod]
+      public void ClearTest()
+      {
+         DoubleLinkedList<int> list = new DoubleLinkedList<int>();
+
+         list.AddLast(0);
+         list.AddLast(1);
+         list.AddLast(2);
+         list.AddLast(3);
+         list.AddLast(4);
+         list.Clear();
+
+         Assert.AreEqual((int)list.Count, 0);
+         Assert.AreEqual(list.First, null);
+         Assert.AreEqual(list.Last, null);
+         Assert.AreEqual(list.Last, list.First);
+      }
+
+      [TestMethod]
       public void FindFirstTest()
       {
          DoubleLinkedList<int> list = new DoubleLinkedList<int>();
@@ -60,20 +110,22 @@ namespace ContainersTests.DoubleLinkedListTests
       }
 
       [TestMethod]
-      public void AddBeforeTest()
+      public void IsEmptyTest()
       {
          DoubleLinkedList<int> list = new DoubleLinkedList<int>();
 
-         list.AddLast(0);
-         list.AddLast(4);
-         list.AddBefore(3, 4);
-         ExceptException(() => { list.AddBefore(2, -5); });
-         list.AddBefore(2, 3);
-         list.AddBefore(1, 2);
-         ExceptException(() => { list.AddBefore(2, 5); });
+         Assert.AreEqual(list.IsEmpty(), true);
 
-         CheckListOrder(list);
+         list.AddLast(0);
+
+         Assert.AreEqual(list.IsEmpty(), false);
+
+         list.AddLast(1);
+         list.AddLast(2);
+
+         Assert.AreEqual(list.IsEmpty(), false);
       }
+
 
       private void ExceptException(Action action)
       {
