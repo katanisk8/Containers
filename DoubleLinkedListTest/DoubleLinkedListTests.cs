@@ -116,6 +116,8 @@ namespace ContainersTests.DoubleLinkedListTests
          Assert.AreNotEqual(list.Last.Prev, null);
          Assert.AreEqual(list.Last.Next, null);
          Assert.AreEqual(list.Last.Value, 4);
+
+         Assert.AreEqual(list.Count, 5);
       }
    }
 }

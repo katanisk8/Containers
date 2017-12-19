@@ -8,6 +8,7 @@ namespace DoubleLinkedList
 
       public DoubleLinkedListElement<TValue> First { get; set; } = null;
       public DoubleLinkedListElement<TValue> Last { get; set; } = null;
+      public uint Count { get; set; } = 0;
 
       public void AddFirst(TValue value)
       {
@@ -17,12 +18,14 @@ namespace DoubleLinkedList
          {
             First = element;
             Last = element;
+            Count++;
          }
          else
          {
             First.Prev = element;
             element.Next = First;
             First = element;
+            Count++;
          }
       }
 
@@ -34,12 +37,14 @@ namespace DoubleLinkedList
          {
             First = element;
             Last = element;
+            Count++;
          }
          else
          {
             Last.Next = element;
             element.Prev = Last;
             Last = element;
+            Count++;
          }
       }
 
@@ -52,6 +57,7 @@ namespace DoubleLinkedList
          {
             First = element;
             Last = element;
+            Count++;
          }
          else if (element == null)
          {
@@ -61,9 +67,9 @@ namespace DoubleLinkedList
          {
             elementBefore.Prev = element.Prev;
             elementBefore.Next = element;
-
             element.Prev.Next = elementBefore;
             element = elementBefore;
+            Count++;
          }
       }
 
@@ -76,6 +82,7 @@ namespace DoubleLinkedList
          {
             First = element;
             Last = element;
+            Count++;
          }
          else if (element == null)
          {
@@ -85,9 +92,9 @@ namespace DoubleLinkedList
          {
             elementBefore.Prev = element.Prev;
             elementBefore.Next = element;
-
             element.Prev.Next = elementBefore;
             element = elementBefore;
+            Count++;
          }
       }
 
@@ -120,9 +127,9 @@ namespace DoubleLinkedList
          while (element != null)
          {
             yield return element.Value;
+            element = element.Next;
          }
 
-         element = element.Next;
       }
 
       public IEnumerator<TValue> GetEnumerator()
@@ -140,6 +147,5 @@ namespace DoubleLinkedList
       //void RemoveFirst()
       //void RemoveLast()
       //void Remove(TValue value)
-      //unsigned int Size()
    }
 }
