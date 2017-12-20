@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace DoubleLinkedList
@@ -61,7 +62,11 @@ namespace DoubleLinkedList
          }
          else if (element == null)
          {
-            return;
+            throw new Exception("Nie znaleziono elementu w kolekcji.");
+         }
+         else if (element.Prev == null)
+         {
+            AddFirst(valueBefore);
          }
          else
          {
@@ -71,6 +76,11 @@ namespace DoubleLinkedList
             element = elementBefore;
             Count++;
          }
+      }
+
+      private void AddFirst(DoubleLinkedListElement<TValue> elementBefore)
+      {
+         throw new NotImplementedException();
       }
 
       public void AddAfter(TValue valueAfter, TValue value)
@@ -86,14 +96,17 @@ namespace DoubleLinkedList
          }
          else if (element == null)
          {
-            return;
+            throw new Exception("Nie znaleziono elementu w kolekcji.");
+         }
+         else if (element.Next == null)
+         {
+            AddLast(valueAfter);
          }
          else
          {
-            element.Next = elementAfter.Next;
-            element.Prev = elementAfter;
-            elementAfter.Prev.Next = element;
-            elementAfter = element;
+            elementAfter.Prev = element;
+            element.Next.Prev = elementAfter;
+            element = elementAfter;
             Count++;
          }
       }

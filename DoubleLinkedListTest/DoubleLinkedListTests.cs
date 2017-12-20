@@ -45,13 +45,13 @@ namespace ContainersTests.DoubleLinkedListTests
       public void AddBeforeTest()
       {
          DoubleLinkedList<int> list = new DoubleLinkedList<int>();
-
-         list.AddLast(0);
+         
+         list.AddLast(1);
          list.AddLast(4);
          list.AddBefore(3, 4);
          ExceptException(() => { list.AddBefore(2, -5); });
          list.AddBefore(2, 3);
-         list.AddBefore(1, 2);
+         list.AddBefore(0, 1);
          ExceptException(() => { list.AddBefore(2, 5); });
 
          CheckListOrder(list);
@@ -63,10 +63,10 @@ namespace ContainersTests.DoubleLinkedListTests
          DoubleLinkedList<int> list = new DoubleLinkedList<int>();
 
          list.AddLast(0);
-         list.AddLast(4);
-         list.AddAfter(5, 4);
+         list.AddLast(3);
+         list.AddAfter(4, 3);
          ExceptException(() => { list.AddAfter(2, -5); });
-         list.AddAfter(3, 2);
+         list.AddAfter(1, 0);
          list.AddAfter(2, 1);
          ExceptException(() => { list.AddAfter(5, 2); });
 
