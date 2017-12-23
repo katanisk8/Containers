@@ -45,7 +45,7 @@ namespace ContainersTests.DoubleLinkedListTests
       public void AddBeforeTest()
       {
          DoubleLinkedList<int> list = new DoubleLinkedList<int>();
-         
+
          list.AddLast(1);
          list.AddLast(4);
          list.AddBefore(3, 4);
@@ -68,7 +68,7 @@ namespace ContainersTests.DoubleLinkedListTests
          ExceptException(() => { list.AddAfter(2, -5); });
          list.AddAfter(1, 0);
          list.AddAfter(2, 1);
-         ExceptException(() => { list.AddAfter(5, 2); });
+         ExceptException(() => { list.AddAfter(5, 5); });
 
          CheckListOrder(list);
       }
@@ -116,7 +116,7 @@ namespace ContainersTests.DoubleLinkedListTests
 
          Assert.AreEqual(list.IsEmpty(), true);
 
-         list.AddLast(0);
+         list.AddFirst(0);
 
          Assert.AreEqual(list.IsEmpty(), false);
 

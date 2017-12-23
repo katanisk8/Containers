@@ -17,9 +17,7 @@ namespace DoubleLinkedList
 
          if (IsEmpty())
          {
-            First = element;
-            Last = element;
-            Count++;
+            Add(element);
          }
          else
          {
@@ -29,16 +27,14 @@ namespace DoubleLinkedList
             Count++;
          }
       }
-
+      
       public void AddLast(TValue value)
       {
          DoubleLinkedListElement<TValue> element = new DoubleLinkedListElement<TValue>(value);
 
          if (IsEmpty())
          {
-            First = element;
-            Last = element;
-            Count++;
+            Add(element);
          }
          else
          {
@@ -56,13 +52,7 @@ namespace DoubleLinkedList
 
          if (IsEmpty())
          {
-            First = element;
-            Last = element;
-            Count++;
-         }
-         else if (element == null)
-         {
-            throw new Exception("Nie znaleziono elementu w kolekcji.");
+            Add(element);
          }
          else if (element.Prev == null)
          {
@@ -73,14 +63,9 @@ namespace DoubleLinkedList
             elementBefore.Prev = element.Prev;
             elementBefore.Next = element;
             element.Prev.Next = elementBefore;
-            element = elementBefore;
+            element.Prev = elementBefore;
             Count++;
          }
-      }
-
-      private void AddFirst(DoubleLinkedListElement<TValue> elementBefore)
-      {
-         throw new NotImplementedException();
       }
 
       public void AddAfter(TValue valueAfter, TValue value)
@@ -90,13 +75,7 @@ namespace DoubleLinkedList
 
          if (IsEmpty())
          {
-            First = element;
-            Last = element;
-            Count++;
-         }
-         else if (element == null)
-         {
-            throw new Exception("Nie znaleziono elementu w kolekcji.");
+            Add(element);
          }
          else if (element.Next == null)
          {
@@ -105,8 +84,9 @@ namespace DoubleLinkedList
          else
          {
             elementAfter.Prev = element;
+            elementAfter.Next = element.Next;
             element.Next.Prev = elementAfter;
-            element = elementAfter;
+            element.Next = elementAfter;
             Count++;
          }
       }
@@ -115,12 +95,13 @@ namespace DoubleLinkedList
       {
          DoubleLinkedListElement<TValue> element = First;
 
+         First = null;
+         Last = null;
+
          while (element != null)
          {
             var nextElement = element.Next;
 
-            First = null;
-            Last = null;
             element = null;
             Count--;
 
@@ -142,12 +123,19 @@ namespace DoubleLinkedList
             element = element.Next;
          }
 
-         return null;
+         throw new Exception("Nie znaleziono elementu w kolekcji");
       }
 
       public bool IsEmpty()
       {
          return First == null && Last == null;
+      }
+
+      private void Add(DoubleLinkedListElement<TValue> element)
+      {
+         First = element;
+         Last = element;
+         Count++;
       }
 
       private IEnumerable<TValue> Events()
@@ -159,7 +147,6 @@ namespace DoubleLinkedList
             yield return element.Value;
             element = element.Next;
          }
-
       }
 
       public IEnumerator<TValue> GetEnumerator()
@@ -173,7 +160,6 @@ namespace DoubleLinkedList
       }
 
 
-      //void RemoveAll()
       //void RemoveFirst()
       //void RemoveLast()
       //void Remove(TValue value)
