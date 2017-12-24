@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Console\Console.csproj", "{4A20EABB-DD90-448F-AC08-9720C16F82EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoubleLinkedListTest", "DoubleLinkedListTest\DoubleLinkedListTest.csproj", "{9FB22CC0-CC81-4FE5-9018-1691195FF869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoubleLinkedListTesta", "DoubleLinkedListTest\DoubleLinkedListTesta.csproj", "{9FB22CC0-CC81-4FE5-9018-1691195FF869}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoubleLinkedList", "DoubleLinkedList\DoubleLinkedList.csproj", "{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListException", "ListException\ListException.csproj", "{2B7F2944-0EC0-4683-BAFB-13D4D34CE786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestDoubleLinkedList", "XUnitTestDoubleLinkedList\XUnitTestDoubleLinkedList.csproj", "{52CAC1EE-560A-417E-9ADC-08B3BA445792}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B7F2944-0EC0-4683-BAFB-13D4D34CE786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B7F2944-0EC0-4683-BAFB-13D4D34CE786}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B7F2944-0EC0-4683-BAFB-13D4D34CE786}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B7F2944-0EC0-4683-BAFB-13D4D34CE786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52CAC1EE-560A-417E-9ADC-08B3BA445792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52CAC1EE-560A-417E-9ADC-08B3BA445792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52CAC1EE-560A-417E-9ADC-08B3BA445792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52CAC1EE-560A-417E-9ADC-08B3BA445792}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

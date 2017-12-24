@@ -1,6 +1,6 @@
 ﻿using IDoubleLinkedListElement;
 
-namespace DoubleLinkedListElement
+namespace ElementNotFoundException
 {
     public class DoubleLinkedListElement<TValue> : IDoubleLinkedListElement<TValue>
    {

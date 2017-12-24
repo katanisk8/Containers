@@ -1,9 +1,10 @@
 ﻿using IDoubleLinkedListElement;
+using System.Collections.Generic;
 
 namespace IDoubleLinkedList
 {
-   public interface IDoubleLinkedList<TValue>
-   {
+   public interface IDoubleLinkedList<TValue> : IEnumerable<TValue>
+    {
       IDoubleLinkedListElement<TValue> First { get; set; }
       IDoubleLinkedListElement<TValue> Last { get; set; }
 

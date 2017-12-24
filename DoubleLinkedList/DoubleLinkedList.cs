@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using IDoubleLinkedList;
 using IDoubleLinkedListElement;
-using DoubleLinkedListElement;
+using ElementNotFoundException;
 
 namespace DoubleLinkedList
 {
-    public class DoubleLinkedList<TValue> : IDoubleLinkedList<TValue>, IEnumerable<TValue>
+    public class DoubleLinkedList<TValue> : IDoubleLinkedList<TValue>
     {
 
         public IDoubleLinkedListElement<TValue> First { get; set; } = null;
@@ -54,7 +54,7 @@ namespace DoubleLinkedList
 
             if (element == null)
             {
-                throw new ElementNotFoundException<TValue>(value);
+                throw new ElementNotFoundException<TValue>(value, this);
             }
             else if (element.Prev == null)
             {
@@ -93,14 +93,43 @@ namespace DoubleLinkedList
             }
         }
 
-        public void RemoveFirst(TValue value)
+        public void RemoveFirst()
         {
-            First = null;
+            First = First.Next;
+            First.Prev = null;
+            Count--;
         }
 
-        public void RemoveLast(TValue value)
+        public void RemoveLast()
         {
-            Last = null;
+            Last = Last.Prev;
+            Last.Next = null;
+            Count--;
+        }
+
+        public void Remove(TValue value)
+        {
+            IDoubleLinkedListElement<TValue> element = FirstOrDefault(value, null);
+
+            if (element == null)
+            {
+                throw new ElementNotFoundException<TValue>(value);
+            }
+            else if (element.Prev == null)
+            {
+                RemoveFirst();
+            }
+            else if (element.Next == null)
+            {
+                RemoveLast();
+            }
+            else
+            {
+                element.Prev.Next = element.Next;
+                element.Next.Prev = element.Prev;
+                element = null;
+                Count--;
+            }
         }
 
         public void Clear()
@@ -170,8 +199,5 @@ namespace DoubleLinkedList
         {
             return GetEnumerator();
         }
-
-
-        //void Remove(TValue value)
     }
 }
