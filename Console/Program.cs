@@ -15,7 +15,7 @@ class Program
          ItemList.AddLast(8);
          ItemList.AddLast(9);
 
-         ItemList.AddAfter(1, 0);
+         //ItemList.AddAfter(1, 0);
          ItemList.AddAfter(2, 1);
          ItemList.AddBefore(5, 6);
          ItemList.AddBefore(4, 5);
@@ -30,7 +30,7 @@ class Program
       }
       catch (Exception ex)
       {
-         Console.WriteLine(string.Format("Wyjatek: {0}", ex.ToString()));
+         Console.WriteLine(ex.Message);
       }
 
       Console.Read();

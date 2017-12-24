@@ -1,9 +1,11 @@
-﻿namespace DoubleLinkedList
+﻿using IDoubleLinkedListElement;
+
+namespace DoubleLinkedListElement
 {
-   public class DoubleLinkedListElement<TValue> : IDoubleLinkedListElement<TValue>
+    public class DoubleLinkedListElement<TValue> : IDoubleLinkedListElement<TValue>
    {
-      public DoubleLinkedListElement<TValue> Prev { get; set; } = null;
-      public DoubleLinkedListElement<TValue> Next { get; set; } = null;
+      public IDoubleLinkedListElement<TValue> Prev { get; set; } = null;
+      public IDoubleLinkedListElement<TValue> Next { get; set; } = null;
       public TValue Value { get; private set; }
 
       public DoubleLinkedListElement(TValue value)

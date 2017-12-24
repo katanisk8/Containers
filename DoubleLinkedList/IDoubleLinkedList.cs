@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using IDoubleLinkedListElement;
 
-namespace DoubleLinkedList
+namespace IDoubleLinkedList
 {
    public interface IDoubleLinkedList<TValue>
    {
-      DoubleLinkedListElement<TValue> First { get; set; }
-      DoubleLinkedListElement<TValue> Last { get; set; }
+      IDoubleLinkedListElement<TValue> First { get; set; }
+      IDoubleLinkedListElement<TValue> Last { get; set; }
 
       void AddAfter(TValue valueBefore, TValue value);
       void AddBefore(TValue valueBefore, TValue value);
       void AddFirst(TValue value);
       void AddLast(TValue value);
-      DoubleLinkedListElement<TValue> FindFirst(TValue value);
+      IDoubleLinkedListElement<TValue> FirstOrDefault(TValue value, IDoubleLinkedListElement<TValue> _default);
       bool IsEmpty();
    }
 }
