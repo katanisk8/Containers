@@ -1,6 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Containers.DoubleLinkedList;
+using Containers.Exceptions;
 
 [TestClass]
 public class DoubleLinkedListTests
