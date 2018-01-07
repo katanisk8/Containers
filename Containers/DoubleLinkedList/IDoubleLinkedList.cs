@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Containers.DoubleLinkedList
+﻿namespace Containers.DoubleLinkedList
 {
-    public interface IDoubleLinkedList<TValue> : IEnumerable<TValue>, IContainer<TValue>
+    public interface IDoubleLinkedList<TValue> : IContainer<TValue>
     {
         IDoubleLinkedListElement<TValue> First { get; set; }
         IDoubleLinkedListElement<TValue> Last { get; set; }

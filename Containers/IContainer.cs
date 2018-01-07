@@ -1,6 +1,8 @@
-﻿namespace Containers
+﻿using System.Collections.Generic;
+
+namespace Containers
 {
-    public interface IContainer<TValue>
+    public interface IContainer<TValue> : IEnumerable<TValue>
     {
         uint Count { get; }
         void Add(TValue value);
