@@ -1,9 +1,9 @@
 ﻿namespace Containers.DoubleLinkedList
 {
-   public interface IDoubleLinkedListElement<TValue>
-   {
-      IDoubleLinkedListElement<TValue> Next { get; set; }
-      IDoubleLinkedListElement<TValue> Prev { get; set; }
-      TValue Value { get; }
-   }
+    public interface IDoubleLinkedListElement<TValue>
+    {
+        IDoubleLinkedListElement<TValue> Next { get; set; }
+        IDoubleLinkedListElement<TValue> Prev { get; set; }
+        TValue Value { get; }
+    }
 }

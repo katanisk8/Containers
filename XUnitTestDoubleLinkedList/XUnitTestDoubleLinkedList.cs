@@ -18,7 +18,7 @@ namespace XUnitTestDoubleLinkedList
             Assert.Equal<uint>(0, list.Count);
             list.RemoveLast();
             Assert.Equal<uint>(0, list.Count);
-            Assert.Throws<ElementNotFoundException<int>>(()=> { list.Remove(-1); });
+            Assert.Throws<ElementNotFoundException<int>>(() => { list.Remove(-1); });
             Assert.Equal<uint>(0, list.Count);
             Assert.Throws<ElementNotFoundException<int>>(() => { list.Remove(0); });
             Assert.Equal<uint>(0, list.Count);

@@ -61,7 +61,7 @@ namespace XUnitTestDoubleLinkedList
             {
                 watch.Stop();
             }
-            
+
             return watch.ElapsedMilliseconds;
         }
     }
