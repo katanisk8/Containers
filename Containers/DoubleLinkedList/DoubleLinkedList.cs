@@ -1,6 +1,6 @@
-﻿using Containers.Exceptions;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Containers.Exceptions;
 
 namespace Containers.DoubleLinkedList
 {

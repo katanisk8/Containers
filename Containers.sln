@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Console\Console.csproj", "{4A20EABB-DD90-448F-AC08-9720C16F82EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersTests", "DoubleLinkedListTest\ContainersTests.csproj", "{9FB22CC0-CC81-4FE5-9018-1691195FF869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersTests", "ContainersTests\ContainersTests.csproj", "{9FB22CC0-CC81-4FE5-9018-1691195FF869}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Containers", "DoubleLinkedList\Containers.csproj", "{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Containers", "Containers\Containers.csproj", "{6E506A10-3DFB-4BD4-8B29-C783837A2BD9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersXTests", "XUnitTestDoubleLinkedList\ContainersXTests.csproj", "{52CAC1EE-560A-417E-9ADC-08B3BA445792}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainersXTests", "ContainersXTests\ContainersXTests.csproj", "{52CAC1EE-560A-417E-9ADC-08B3BA445792}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
