@@ -1,4 +1,4 @@
-﻿using DoubleLinkedList;
+﻿using Containers.DoubleLinkedList;
 using System;
 
 class Program
@@ -18,9 +18,9 @@ class Program
          ItemList.AddAfter(1, 0);
          ItemList.AddAfter(2, 1);
          ItemList.AddBefore(5, 6);
-         //ItemList.AddBefore(4, 5);
+         ItemList.AddBefore(4, 5);
          ItemList.AddBefore(3, 4);
-
+            
          foreach (var item in ItemList)
          {
             Console.WriteLine(item.ToString());

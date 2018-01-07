@@ -1,8 +1,7 @@
-﻿using System;
-using IDoubleLinkedList;
-using System.Linq;
+﻿using Containers.DoubleLinkedList;
+using System;
 
-namespace ElementNotFoundException
+namespace Containers.Exceptions
 {
     public class ElementNotFoundException<TValue> : Exception
     {
@@ -13,7 +12,7 @@ namespace ElementNotFoundException
 
         public ElementNotFoundException(TValue value)
         {
-            throw new Exception(string.Format(expectedMessageValue, value));
+            throw new ElementNotFoundException<TValue>(); // (string.Format(expectedMessageValue, value));
         }
 
         public ElementNotFoundException(TValue value, IDoubleLinkedList<TValue> list)

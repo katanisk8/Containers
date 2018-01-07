@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DoubleLinkedList\DoubleLinkedList.csproj" />
+    <ProjectReference Include="..\DoubleLinkedList\Containers.csproj" />
   </ItemGroup>
 
 </Project>

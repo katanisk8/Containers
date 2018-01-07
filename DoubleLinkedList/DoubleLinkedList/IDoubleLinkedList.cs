@@ -1,9 +1,8 @@
-﻿using IDoubleLinkedListElement;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace IDoubleLinkedList
+namespace Containers.DoubleLinkedList
 {
-   public interface IDoubleLinkedList<TValue> : IEnumerable<TValue>
+   public interface IDoubleLinkedList<TValue> : IEnumerable<TValue>, IContainer<TValue>
     {
       IDoubleLinkedListElement<TValue> First { get; set; }
       IDoubleLinkedListElement<TValue> Last { get; set; }
@@ -13,6 +12,5 @@ namespace IDoubleLinkedList
       void AddFirst(TValue value);
       void AddLast(TValue value);
       IDoubleLinkedListElement<TValue> FirstOrDefault(TValue value, IDoubleLinkedListElement<TValue> _default);
-      bool IsEmpty();
    }
 }

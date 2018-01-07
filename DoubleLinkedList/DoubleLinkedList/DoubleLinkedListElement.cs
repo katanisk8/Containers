@@ -1,6 +1,4 @@
-﻿using IDoubleLinkedListElement;
-
-namespace ElementNotFoundException
+﻿namespace Containers.DoubleLinkedList
 {
     public class DoubleLinkedListElement<TValue> : IDoubleLinkedListElement<TValue>
    {

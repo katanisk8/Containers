@@ -1,10 +1,31 @@
-using DoubleLinkedList;
+using Containers.DoubleLinkedList;
+using Containers.Exceptions;
 using Xunit;
 
 namespace XUnitTestDoubleLinkedList
 {
     public class XUnitTestDoubleLinkedList
     {
+
+        [Fact]
+        public void RemoveEmptyTest()
+        {
+            DoubleLinkedList<int> list = new DoubleLinkedList<int>();
+
+            Assert.Equal<uint>(0, list.Count);
+
+            list.RemoveFirst();
+            Assert.Equal<uint>(0, list.Count);
+            list.RemoveLast();
+            Assert.Equal<uint>(0, list.Count);
+            Assert.Throws<ElementNotFoundException<int>>(()=> { list.Remove(-1); });
+            Assert.Equal<uint>(0, list.Count);
+            Assert.Throws<ElementNotFoundException<int>>(() => { list.Remove(0); });
+            Assert.Equal<uint>(0, list.Count);
+            Assert.Throws<ElementNotFoundException<int>>(() => { list.Remove(1000000); });
+            Assert.Equal<uint>(0, list.Count);
+        }
+
         [Fact]
         public void RemoveFirstTest()
         {

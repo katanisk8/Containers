@@ -1,4 +1,4 @@
-﻿namespace IDoubleLinkedListElement
+﻿namespace Containers.DoubleLinkedList
 {
    public interface IDoubleLinkedListElement<TValue>
    {

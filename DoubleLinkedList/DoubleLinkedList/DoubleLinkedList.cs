@@ -1,55 +1,57 @@
-﻿using System.Collections;
+﻿using Containers.Exceptions;
+using System.Collections;
 using System.Collections.Generic;
-using IDoubleLinkedList;
-using IDoubleLinkedListElement;
-using ElementNotFoundException;
 
-namespace DoubleLinkedList
+namespace Containers.DoubleLinkedList
 {
     public class DoubleLinkedList<TValue> : IDoubleLinkedList<TValue>
     {
-
         public IDoubleLinkedListElement<TValue> First { get; set; } = null;
         public IDoubleLinkedListElement<TValue> Last { get; set; } = null;
-        public uint Count { get; set; } = 0;
+        public uint Count { get; private set; } = 0;
+
+        public void Add(TValue value)
+        {
+            AddLast(value);
+        }
 
         public void AddFirst(TValue value)
         {
-            IDoubleLinkedListElement<TValue> element = new DoubleLinkedListElement<TValue>(value);
+            IDoubleLinkedListElement<TValue> element = CreateElement(value);
 
             if (IsEmpty())
             {
-                Add(element);
+                AddFirstElement(element);
             }
             else
             {
                 First.Prev = element;
                 element.Next = First;
                 First = element;
-                Count++;
+                IncrementCounter();
             }
         }
 
         public void AddLast(TValue value)
         {
-            IDoubleLinkedListElement<TValue> element = new DoubleLinkedListElement<TValue>(value);
+            IDoubleLinkedListElement<TValue> element = CreateElement(value);
 
             if (IsEmpty())
             {
-                Add(element);
+                AddFirstElement(element);
             }
             else
             {
                 Last.Next = element;
                 element.Prev = Last;
                 Last = element;
-                Count++;
+                IncrementCounter();
             }
         }
 
         public void AddBefore(TValue valueBefore, TValue value)
         {
-            IDoubleLinkedListElement<TValue> elementBefore = new DoubleLinkedListElement<TValue>(valueBefore);
+            IDoubleLinkedListElement<TValue> elementBefore = CreateElement(valueBefore);
             IDoubleLinkedListElement<TValue> element = FirstOrDefault(value, null);
 
             if (element == null)
@@ -66,13 +68,13 @@ namespace DoubleLinkedList
                 elementBefore.Next = element;
                 element.Prev.Next = elementBefore;
                 element.Prev = elementBefore;
-                Count++;
+                IncrementCounter();
             }
         }
 
         public void AddAfter(TValue valueAfter, TValue value)
         {
-            IDoubleLinkedListElement<TValue> elementAfter = new DoubleLinkedListElement<TValue>(valueAfter);
+            IDoubleLinkedListElement<TValue> elementAfter = CreateElement(valueAfter);
             IDoubleLinkedListElement<TValue> element = FirstOrDefault(value, null);
 
             if (element == null)
@@ -89,22 +91,31 @@ namespace DoubleLinkedList
                 elementAfter.Next = element.Next;
                 element.Next.Prev = elementAfter;
                 element.Next = elementAfter;
-                Count++;
+                IncrementCounter();
             }
         }
 
         public void RemoveFirst()
         {
-            First = First.Next;
-            First.Prev = null;
-            Count--;
+            if (IsEmpty() == false)
+            {
+                First = First.Next;
+                EraseElement(First.Prev);
+                First.Prev = null;
+                DecrementCounter();
+            }
         }
 
         public void RemoveLast()
         {
-            Last = Last.Prev;
-            Last.Next = null;
-            Count--;
+
+            if (IsEmpty() == false)
+            {
+                Last = Last.Prev;
+                EraseElement(Last.Next);
+                Last.Next = null;
+                DecrementCounter();
+            }
         }
 
         public void Remove(TValue value)
@@ -127,8 +138,8 @@ namespace DoubleLinkedList
             {
                 element.Prev.Next = element.Next;
                 element.Next.Prev = element.Prev;
-                element = null;
-                Count--;
+                EraseElement(element);
+                DecrementCounter();
             }
         }
 
@@ -136,18 +147,18 @@ namespace DoubleLinkedList
         {
             IDoubleLinkedListElement<TValue> element = First;
 
-            First = null;
-            Last = null;
-
             while (element != null)
             {
                 var nextElement = element.Next;
 
-                element = null;
-                Count--;
+                EraseElement(element);
+                DecrementCounter();
 
                 element = nextElement;
             }
+
+            First = null;
+            Last = null;
         }
 
         public IDoubleLinkedListElement<TValue> FirstOrDefault(TValue value, IDoubleLinkedListElement<TValue> _default)
@@ -172,13 +183,36 @@ namespace DoubleLinkedList
             return First == null && Last == null;
         }
 
-        private void Add(IDoubleLinkedListElement<TValue> element)
+        private void EraseElement(IDoubleLinkedListElement<TValue> element)
+        {
+            element.Prev = null;
+            element.Next = null;
+            element = null;
+        }
+
+        private IDoubleLinkedListElement<TValue> CreateElement(TValue value)
+        {
+            return new DoubleLinkedListElement<TValue>(value);
+        }
+
+        private void AddFirstElement(IDoubleLinkedListElement<TValue> element)
         {
             First = element;
             Last = element;
-            Count++;
+            IncrementCounter();
         }
 
+        private void IncrementCounter()
+        {
+            ++Count;
+        }
+
+        private void DecrementCounter()
+        {
+            --Count;
+        }
+
+        #region IEnumerable
         private IEnumerable<TValue> Events()
         {
             IDoubleLinkedListElement<TValue> element = First;
@@ -199,5 +233,6 @@ namespace DoubleLinkedList
         {
             return GetEnumerator();
         }
+        #endregion
     }
 }
