@@ -20,7 +20,7 @@ class Program
          ItemList.AddBefore(5, 6);
          ItemList.AddBefore(4, 5);
          ItemList.AddBefore(3, 4);
-            
+
          foreach (var item in ItemList)
          {
             Console.WriteLine(item.ToString());
