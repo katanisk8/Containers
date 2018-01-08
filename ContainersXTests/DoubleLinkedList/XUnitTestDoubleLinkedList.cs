@@ -156,9 +156,9 @@ public class XUnitTestDoubleLinkedList
 
       Assert.Equal<uint>(0, list.Count);
       
-      Assert.Throws<EmptyListException<int>>(() => { list.RemoveFirst(); });
+      Assert.Throws<EmptyListException>(() => { list.RemoveFirst(); });
       Assert.Equal<uint>(0, list.Count);
-      Assert.Throws<EmptyListException<int>>(() => { list.RemoveLast(); ; });
+      Assert.Throws<EmptyListException>(() => { list.RemoveLast(); ; });
       Assert.Equal<uint>(0, list.Count);
       
       Assert.Equal<uint>(0, list.Count);

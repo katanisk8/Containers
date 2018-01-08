@@ -5,7 +5,7 @@ using Containers.Exceptions;
 namespace Containers.DoubleLinkedList
 {
    public class DoubleLinkedList<TValue> : IDoubleLinkedList<TValue>
-   {
+    {
       public IDoubleLinkedListElement<TValue> First { get; set; } = null;
       public IDoubleLinkedListElement<TValue> Last { get; set; } = null;
       public uint Count { get; private set; } = 0;
@@ -100,7 +100,7 @@ namespace Containers.DoubleLinkedList
       {
          if (IsEmpty)
          {
-            throw new EmptyListException<TValue>();
+            throw new EmptyListException();
          }
          else
          {
@@ -115,7 +115,7 @@ namespace Containers.DoubleLinkedList
       {
          if (IsEmpty)
          {
-            throw new EmptyListException<TValue>();
+            throw new EmptyListException();
          }
          else
          {
