@@ -104,16 +104,16 @@ public class XUnitTestDoubleLinkedList
    {
       DoubleLinkedList<int> list = new DoubleLinkedList<int>();
 
-      Assert.Equal(list.IsEmpty(), true);
+      Assert.Equal(list.IsEmpty, true);
 
       list.AddFirst(0);
 
-      Assert.Equal(list.IsEmpty(), false);
+      Assert.Equal(list.IsEmpty, false);
 
       list.AddLast(1);
       list.AddLast(2);
 
-      Assert.Equal(list.IsEmpty(), false);
+      Assert.Equal(list.IsEmpty, false);
 
    }
 
@@ -155,10 +155,12 @@ public class XUnitTestDoubleLinkedList
       DoubleLinkedList<int> list = new DoubleLinkedList<int>();
 
       Assert.Equal<uint>(0, list.Count);
-
-      list.RemoveFirst();
+      
+      Assert.Throws<EmptyListException<int>>(() => { list.RemoveFirst(); });
       Assert.Equal<uint>(0, list.Count);
-      list.RemoveLast();
+      Assert.Throws<EmptyListException<int>>(() => { list.RemoveLast(); ; });
+      Assert.Equal<uint>(0, list.Count);
+      
       Assert.Equal<uint>(0, list.Count);
       Assert.Throws<ElementNotFoundException<int>>(() => { list.Remove(-1); });
       Assert.Equal<uint>(0, list.Count);

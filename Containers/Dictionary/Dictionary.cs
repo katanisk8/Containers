@@ -132,11 +132,6 @@ namespace Containers.Dictionary
          throw new NotImplementedException();
       }
 
-      bool IContainer<IDictionaryElement<TKey, TValue>>.IsEmpty()
-      {
-         throw new NotImplementedException();
-      }
-
       public IEnumerator<IDictionaryElement<TKey, TValue>> GetEnumerator()
       {
          throw new NotImplementedException();

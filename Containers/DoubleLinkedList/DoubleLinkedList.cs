@@ -9,6 +9,7 @@ namespace Containers.DoubleLinkedList
       public IDoubleLinkedListElement<TValue> First { get; set; } = null;
       public IDoubleLinkedListElement<TValue> Last { get; set; } = null;
       public uint Count { get; private set; } = 0;
+      public bool IsEmpty { get { return First == null && Last == null; } }
 
       public void Add(TValue value)
       {
@@ -19,7 +20,7 @@ namespace Containers.DoubleLinkedList
       {
          IDoubleLinkedListElement<TValue> element = CreateElement(value);
 
-         if (IsEmpty())
+         if (IsEmpty)
          {
             AddFirstElement(element);
          }
@@ -36,7 +37,7 @@ namespace Containers.DoubleLinkedList
       {
          IDoubleLinkedListElement<TValue> element = CreateElement(value);
 
-         if (IsEmpty())
+         if (IsEmpty)
          {
             AddFirstElement(element);
          }
@@ -97,7 +98,11 @@ namespace Containers.DoubleLinkedList
 
       public void RemoveFirst()
       {
-         if (IsEmpty() == false)
+         if (IsEmpty)
+         {
+            throw new EmptyListException<TValue>();
+         }
+         else
          {
             First = First.Next;
             EraseElement(First.Prev);
@@ -108,8 +113,11 @@ namespace Containers.DoubleLinkedList
 
       public void RemoveLast()
       {
-
-         if (IsEmpty() == false)
+         if (IsEmpty)
+         {
+            throw new EmptyListException<TValue>();
+         }
+         else
          {
             Last = Last.Prev;
             EraseElement(Last.Next);
@@ -176,11 +184,6 @@ namespace Containers.DoubleLinkedList
          }
 
          return _default;
-      }
-
-      public bool IsEmpty()
-      {
-         return First == null && Last == null;
       }
 
       private void EraseElement(IDoubleLinkedListElement<TValue> element)
