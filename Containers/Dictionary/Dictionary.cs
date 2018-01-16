@@ -6,7 +6,7 @@ namespace Containers.Dictionary
 {
     public class Dictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
-        private IDictionaryElement<TKey, TValue> Root { get; set; } = null;
+        public IDictionaryElement<TKey, TValue> Root { get; set; } = null;
         public uint Count { get; private set; }
         public bool IsEmpty { get { return Root == null; } }
 
@@ -14,7 +14,7 @@ namespace Containers.Dictionary
 
         public void Add(TKey key, TValue value)
         {
-            IDictionaryElement<TKey, TValue> newNode = CreateElemetn(key, value);
+            IDictionaryElement<TKey, TValue> newNode = CreateElement(key, value);
 
             Add(newNode);
         }
@@ -92,7 +92,7 @@ namespace Containers.Dictionary
             --Count;
         }
 
-        private IDictionaryElement<TKey, TValue> CreateElemetn(TKey key, TValue value)
+        private IDictionaryElement<TKey, TValue> CreateElement(TKey key, TValue value)
         {
             return new DictionaryElement<TKey, TValue>(key, value);
         }
